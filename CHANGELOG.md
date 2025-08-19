@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.6 (2025-08-19)
+
+
+### Features
+
+* 基于Stardust-vue初始化项目 ([0f329e2](https://github.com/yxb123456cy/go-to-cloud-vue/commit/0f329e24f08d5ee86e953951ab968ca917d3905f))
+
 ### [0.0.5](https://github.com/yxb123456cy/stardust-vue-fronted/compare/v0.0.4...v0.0.5) (2025-08-19)
 
 
