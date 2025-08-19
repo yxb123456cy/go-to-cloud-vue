@@ -1,9 +1,17 @@
 <script setup lang="ts">
 
+
 </script>
 
 <template>
-  <RouterView />
+  <div id="app">
+    <!-- 需要Layout的页面 -->
+    <RouterView />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+#app {
+  min-height: 100vh;
+}
+</style>
