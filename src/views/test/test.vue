@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CheckboxgroupTest from './modules/checkboxgroupTest.vue'
+import ModalTest from './modules/modalTest.vue'
 import SelectTest from './modules/selectTest.vue'
 import TextareaTest from './modules/textareaTest.vue'
 </script>
@@ -9,6 +10,7 @@ import TextareaTest from './modules/textareaTest.vue'
     <CheckboxgroupTest />
     <SelectTest />
     <TextareaTest />
+    <ModalTest />
   </div>
 </template>
 
