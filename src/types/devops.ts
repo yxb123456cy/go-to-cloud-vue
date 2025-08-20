@@ -1,13 +1,13 @@
 // 项目TS类型接口
 export interface Project {
-  id: number  //项目ID;
-  name: string //项目名称;
-  repo_url: string //项目仓库地址;
-  branch: string //项目分支;
-  build_cmd: string //项目构建命令;
-  image_name: string //镜像名称;
-  created_at: string  //创建时间;
-  updated_at: string  //更新时间;
+  id: number // 项目ID;
+  name: string // 项目名称;
+  repo_url: string // 项目仓库地址;
+  branch: string // 项目分支;
+  build_cmd: string // 项目构建命令;
+  image_name: string // 镜像名称;
+  created_at: string // 创建时间;
+  updated_at: string // 更新时间;
 }
 
 /**
@@ -34,7 +34,7 @@ export interface BuildHistory {
   status: BuildStatus
   log?: string
   created_at: string
-  updated_at: string,
+  updated_at: string
   project?: Project
 }
 
@@ -91,9 +91,9 @@ export interface DeployHistory {
   host?: Host // 关联的主机信息
 }
 
-// ============================================= 
+// =============================================
 // 镜像仓库相关类型
-// ============================================= 
+// =============================================
 /**
  * 镜像仓库接口
  */
@@ -117,9 +117,9 @@ export interface ImageRepoForm {
   password?: string
 }
 
-// ============================================= 
+// =============================================
 // 构建节点相关类型
-// ============================================= 
+// =============================================
 export type BuildNodeStatus = 'ONLINE' | 'OFFLINE'
 
 /**
@@ -187,9 +187,9 @@ export interface RecentActivity {
   host_name?: string // 部署活动才有
 }
 
-// ============================================= 
+// =============================================
 // 扩展类型定义
-// ============================================= 
+// =============================================
 
 /**
  * 系统配置类型

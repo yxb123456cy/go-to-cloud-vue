@@ -1,10 +1,14 @@
-// ============================================= 
+// =============================================
 // 制品管理相关TypeScript类型定义
-// ============================================= 
+// =============================================
 
+import type { User } from './auth'
 /**
  * 制品类型接口
  */
+// 导入相关类型（假设这些类型在其他文件中定义）
+import type { Project } from './devops'
+
 export interface ArtifactType {
   id: number // 类型ID
   name: string // 制品类型名称，如DOCKER,NPM,JAR
@@ -104,7 +108,7 @@ export interface ArtifactStats {
   totalDownloads: number // 下载总数
   recentDownloads: number // 最近下载数
   artifactsByType: Record<string, number> // 按类型分组的制品数量
-  downloadsByDay: Array<{ date: string; count: number }> // 按日期分组的下载量
+  downloadsByDay: Array<{ date: string, count: number }> // 按日期分组的下载量
 }
 
 /**
@@ -184,8 +188,3 @@ export interface ArtifactUsage {
   unique_users: number
   last_used_at?: string
 }
-
-// 导入相关类型（假设这些类型在其他文件中定义）
-import type { Project } from './devops'
-import type { User } from './auth'
-import type { Host } from './devops'

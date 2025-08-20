@@ -1,9 +1,7 @@
+import type { LoginForm, RegisterForm, User } from '../../types/auth'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { LoginForm, RegisterForm, User } from '../../types/auth'
 import { authApi } from '../../api/auth'
-
-
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<User | null>(null)
@@ -19,9 +17,11 @@ export const useAuthStore = defineStore('auth', () => {
       user.value = response.data.user
       localStorage.setItem('token', token.value)
       return { success: true }
-    } catch (error: any) {
+    }
+    catch (error: any) {
       return { success: false, message: error.message || '登录失败' }
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -31,12 +31,13 @@ export const useAuthStore = defineStore('auth', () => {
     loading.value = true
     try {
       const response = await authApi.register(registerForm)
-      console.log("response:", response);
-      return { success: true, message: '注册成功，请登录' };
-
-    } catch (error: any) {
+      console.warn('response:', response)
+      return { success: true, message: '注册成功，请登录' }
+    }
+    catch (error: any) {
       return { success: false, message: error.message || '注册失败' }
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -50,11 +51,14 @@ export const useAuthStore = defineStore('auth', () => {
 
   // 获取用户信息
   const getUserInfo = async () => {
-    if (!token.value) return
+    if (!token.value)
+      return
     try {
       const response = await authApi.getUserInfo()
       user.value = response.data
-    } catch (error) {
+    }
+    catch (error) {
+      console.error(error)
       logout()
     }
   }
@@ -66,10 +70,10 @@ export const useAuthStore = defineStore('auth', () => {
     login,
     register,
     logout,
-    getUserInfo
+    getUserInfo,
   }
 }, {
   persist: {
     key: 'auth-store',
-  }
+  },
 })

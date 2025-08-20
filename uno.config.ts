@@ -6,7 +6,7 @@ import {
   presetUno,
   presetWebFonts,
   transformerDirectives,
-  transformerVariantGroup
+  transformerVariantGroup,
 } from 'unocss'
 
 export default defineConfig({
@@ -32,7 +32,7 @@ export default defineConfig({
         700: '#1d4ed8',
         800: '#1e40af',
         900: '#1e3a8a',
-      }
+      },
     },
     breakpoints: {
       'xs': '475px',
@@ -41,7 +41,7 @@ export default defineConfig({
       'lg': '1024px',
       'xl': '1280px',
       '2xl': '1536px',
-    }
+    },
   },
   presets: [
     presetUno(),
@@ -69,5 +69,5 @@ export default defineConfig({
     'prose-sm',
     'prose-lg',
     'prose-xl',
-  ]
+  ],
 })

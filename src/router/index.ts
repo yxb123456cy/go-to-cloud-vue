@@ -1,11 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import MainLayout from '../layout/MainLayout.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/login'
+    redirect: '/login',
   },
   {
     path: '/login',
@@ -13,8 +13,8 @@ const routes: RouteRecordRaw[] = [
     component: () => import('../views/auth/LoginView.vue'),
     meta: {
       title: '登录',
-      requiresAuth: false
-    }
+      requiresAuth: false,
+    },
   },
   {
     path: '/register',
@@ -22,14 +22,23 @@ const routes: RouteRecordRaw[] = [
     component: () => import('../views/auth/RegisterView.vue'),
     meta: {
       title: '注册',
-      requiresAuth: false
-    }
+      requiresAuth: false,
+    },
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: () => import('../views/test/test.vue'),
+    meta: {
+      title: '组件测试',
+      requiresAuth: false,
+    },
   },
   {
     path: '/',
     component: MainLayout,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
     },
     children: [
       {
@@ -38,8 +47,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/dashboard/DashboardView.vue'),
         meta: {
           title: '控制台',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       {
         path: 'projects',
@@ -47,8 +56,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/business/ProjectView.vue'),
         meta: {
           title: '项目管理',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       {
         path: 'builds',
@@ -56,8 +65,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/business/BuildHistoryView.vue'),
         meta: {
           title: '构建历史',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       {
         path: 'deploys',
@@ -65,8 +74,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/business/DeployHistoryView.vue'),
         meta: {
           title: '部署历史',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       // 制品管理路由组
       {
@@ -75,8 +84,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/artifact/ArtifactListView.vue'),
         meta: {
           title: '制品列表',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       {
         path: 'artifacts/:id',
@@ -84,8 +93,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/artifact/ArtifactDetailView.vue'),
         meta: {
           title: '制品详情',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       {
         path: 'artifact-repos',
@@ -93,8 +102,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/artifact/ArtifactRepoView.vue'),
         meta: {
           title: '制品仓库管理',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       {
         path: 'artifact-downloads',
@@ -102,8 +111,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/artifact/ArtifactDownloadView.vue'),
         meta: {
           title: '制品下载记录',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       {
         path: 'system/host-groups',
@@ -111,8 +120,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/system/HostGroupView.vue'),
         meta: {
           title: '主机组管理',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       {
         path: 'system/hosts',
@@ -120,8 +129,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/system/HostView.vue'),
         meta: {
           title: '主机管理',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       {
         path: 'system/image-repos',
@@ -129,8 +138,8 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/system/ImageRepoView.vue'),
         meta: {
           title: '镜像仓库管理',
-          requiresAuth: false
-        }
+          requiresAuth: false,
+        },
       },
       {
         path: 'system/build-nodes',
@@ -138,16 +147,16 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/system/BuildNodeView.vue'),
         meta: {
           title: '构建节点配置',
-          requiresAuth: false
-        }
-      }
-    ]
-  }
+          requiresAuth: false,
+        },
+      },
+    ],
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 // 路由守卫
@@ -162,9 +171,11 @@ router.beforeEach((to, _, next) => {
 
   if (requiresAuth && !token) {
     next('/login')
-  } else if (!requiresAuth && token && (to.path === '/login' || to.path === '/register')) {
+  }
+  else if (!requiresAuth && token && (to.path === '/login' || to.path === '/register')) {
     next('/dashboard')
-  } else {
+  }
+  else {
     next()
   }
 })

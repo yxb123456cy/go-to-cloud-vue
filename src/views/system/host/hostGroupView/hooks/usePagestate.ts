@@ -1,2 +1,2 @@
-export default function usePagestate() { 
+export default function usePagestate() {
 }
