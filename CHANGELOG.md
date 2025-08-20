@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/yxb123456cy/go-to-cloud-vue/compare/v0.0.8...v0.0.9) (2025-08-20)
+
+
+### Features
+
+* 新增QyProModal组件 ([c80004a](https://github.com/yxb123456cy/go-to-cloud-vue/commit/c80004a3c5b5a25356bc4896d9e079fb19af4321))
+
 ### [0.0.8](https://github.com/yxb123456cy/go-to-cloud-vue/compare/v0.0.7...v0.0.8) (2025-08-20)
 
 
